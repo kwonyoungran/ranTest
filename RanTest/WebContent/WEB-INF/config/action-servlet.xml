@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<context:component-scan base-package="kr.co.hanandong"></context:component-scan>
+	
+	<task:annotation-driven />
+	
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="kr.co.hanandong.common.resolver.CustomMapArgumentResolver"></bean>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean id="loggerInterceptor" class="kr.co.hanandong.common.logger.LoggerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2" 
+		p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp">
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>/WEB-INF/config/config</value>
+			</list>
+		</property>
+		<property name="cacheSeconds">
+		    <!-- [TODO: For Real Server] -->
+            <value>3</value>
+		</property>
+	</bean>
+	
+	<bean id="messageSourceAccessor" class="org.springframework.context.support.MessageSourceAccessor">
+		<constructor-arg>
+			<ref bean="messageSource" />
+		</constructor-arg>
+	</bean>
+		
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+
+	<decorator name="no-left_layout" page="no-left_layout.jsp">
+    </decorator>
+
+	<decorator name="no-menu_layout" page="no-menu_layout.jsp">
+    	<pattern>*</pattern>
+    </decorator>
+
+   	<decorator name="basic_layout" page="basic_layout.jsp">
+    </decorator>
+
+    <excludes>
+		<pattern></pattern>
+	</excludes>
+	
+</decorators>

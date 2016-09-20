@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Mysql Setting -->
+    <bean id="sqlSession_mysql" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource_mysql" />
+        <property name="configLocation" value="classpath:kr/co/hanandong/mapper/mysql/config/Config.xml" />
+        <property name="mapperLocations" value="classpath:kr/co/hanandong/mapper/mysql/**/*_SQL.xml" />
+    </bean>
+    
+    <bean id="sqlSessionTemplate_mysql" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSession_mysql"/>
+    </bean>
+
+</beans>

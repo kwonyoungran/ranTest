@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="RanTest">
+    <wb-module deploy-name="kr.co.hanandong">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="RanTest"/>
-        <property name="java-output-path" value="/RanTest/build/classes"/>
+        <property name="java-output-path" value="/kr.co.hanandong/build/classes"/>
+        <property name="context-root" value="kr.co.hanandong"/>
     </wb-module>
 </project-modules>
