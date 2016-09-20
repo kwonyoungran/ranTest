@@ -13,7 +13,7 @@ $(document).ready(function() {
 		fn_openBoardUpdate();
 	});
 	
-	$("a[name='file']").on("click", function(e){
+	$("a[name='file']").on("click", function(e) {
         e.preventDefault();
         fn_downloadFile($(this));
     });
