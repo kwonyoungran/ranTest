@@ -21,6 +21,7 @@
 <script src="/common/js/select2-4.0.1.js"></script>
 <script src="/common/js/common.js"></script>
 <script type="text/javascript">
+<!-- 메뉴생성 -->
 var WEBVIEW = false;
 if ("<c:out value="${webview}" />")	WEBVIEW = true;
 

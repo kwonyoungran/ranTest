@@ -5,10 +5,12 @@
     </decorator>
 
 	<decorator name="no-menu_layout" page="no-menu_layout.jsp">
-    	<pattern>*</pattern>
+		<pattern>/common/fileupload/*.do</pattern>
     </decorator>
 
    	<decorator name="basic_layout" page="basic_layout.jsp">
+   		<pattern>*</pattern>
+   		<pattern>/common/fileupload/blobupload/*.do</pattern>
     </decorator>
 
     <excludes>

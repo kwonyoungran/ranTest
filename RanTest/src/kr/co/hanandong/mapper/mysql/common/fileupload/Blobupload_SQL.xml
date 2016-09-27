@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="common.fileupload.blobupload">
+
+	<select id="selectFileList" parameterType="hashmap" resultType="casemap">
+		<include refid="common.pagingPre_mysql" />
+		SELECT
+            IDX,
+            FILE_NAME,
+            REG_DATE,
+            REG_NAME,
+            UPDATE_DATE,
+            UPDATE_NAME
+        FROM
+            FILE_INFO
+        ORDER BY IDX ASC
+        <include refid="common.pagingPost_mysql" />
+    </select>
+    
+    <insert id="insertFile" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+    	INSERT INTO FILE_INFO
+    	(
+    		FILE_NAME,
+    		FILE_DATA,
+    		REG_DATE,
+    		REG_NAME
+    	)
+    	VALUES
+    	(
+    		#{file_name},
+    		#{fileBytes,jdbcType=BLOB},
+    		NOW(),
+    		#{reg_name}
+    	)
+    </insert>
+    
+</mapper>

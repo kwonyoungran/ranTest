@@ -11,9 +11,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import kr.co.hanandong.common.CommandMap;
-import kr.co.hanandong.common.utils.FileUtils;
-import kr.co.hanandong.common.fileupload.dao.FileuploadDAO;
+import kr.co.hanandong.common.fileupload.dao.FileuploadDao;
 import kr.co.hanandong.common.fileupload.service.FileuploadService;
+import kr.co.hanandong.common.utils.FileUtils;
 
 @Service("fileuploadService")
 public class FileuploadServiceImpl implements FileuploadService {
@@ -23,32 +23,32 @@ public class FileuploadServiceImpl implements FileuploadService {
 	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 	
-	@Resource(name="fileuploadDAO")
-	private FileuploadDAO fileuploadDAO;
+	@Resource(name="fileuploadDao")
+	private FileuploadDao fileuploadDao;
 	
 	@Override
 	public List<Map<String, Object>> selectBoardList(CommandMap map) throws Exception {
-		return fileuploadDAO.selectBoardList(map);
+		return fileuploadDao.selectBoardList(map);
 	}
 
 	@Override
 	public void insertBoard(Map<String, Object> map, HttpServletRequest request) throws Exception {
-		fileuploadDAO.insertBoard(map);
+		fileuploadDao.insertBoard(map);
 		
 		List<Map<String, Object>> list = fileUtils.parseInsertFileInfo(map, request);
 		for(int i=0; i<list.size(); i++) {
-			fileuploadDAO.insertFile(list.get(i));
+			fileuploadDao.insertFile(list.get(i));
 		}
 	}
 
 	@Override
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {
-		fileuploadDAO.updateHitCnt(map);
+		fileuploadDao.updateHitCnt(map);
 		Map<String,Object> resultMap = new HashMap<String,Object>();
-		Map<String,Object> tempMap = fileuploadDAO.selectBoardDetail(map);
+		Map<String,Object> tempMap = fileuploadDao.selectBoardDetail(map);
 		resultMap.put("map", tempMap);
 		
-		List<Map<String,Object>> list = fileuploadDAO.selectFileList(map);
+		List<Map<String,Object>> list = fileuploadDao.selectFileList(map);
 		resultMap.put("list", list);
 		
 		return resultMap;
@@ -56,28 +56,28 @@ public class FileuploadServiceImpl implements FileuploadService {
 
 	@Override
 	public void updateBoard(Map<String, Object> map, HttpServletRequest request) throws Exception {
-		fileuploadDAO.updateBoard(map);
-		fileuploadDAO.deleteFileList(map);
+		fileuploadDao.updateBoard(map);
+		fileuploadDao.deleteFileList(map);
 		
 		List<Map<String,Object>> list = fileUtils.parseUpdateFileInfo(map, request);
 		Map<String,Object> tempMap = null;
 		for(int i=0; i<list.size(); i++) {
 			tempMap = list.get(i);
 			if(tempMap.get("IS_NEW").equals("Y")) {
-				fileuploadDAO.insertFile(tempMap);
+				fileuploadDao.insertFile(tempMap);
 			}else {
-				fileuploadDAO.updateFile(tempMap);
+				fileuploadDao.updateFile(tempMap);
 			}
 		}
 	}
 
 	@Override
 	public void deleteBoard(Map<String, Object> map) throws Exception {
-		fileuploadDAO.deleteBoard(map);
+		fileuploadDao.deleteBoard(map);
 	}
 
 	@Override
 	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
-		return fileuploadDAO.selectFileInfo(map);
+		return fileuploadDao.selectFileInfo(map);
 	}
 }

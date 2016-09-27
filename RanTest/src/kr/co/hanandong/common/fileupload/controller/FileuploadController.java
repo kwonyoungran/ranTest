@@ -19,7 +19,7 @@ import kr.co.hanandong.common.CommandMap;
 import kr.co.hanandong.common.fileupload.service.FileuploadService;
 
 @Controller
-@RequestMapping("/common/fileupload/")
+@RequestMapping("/common/fileupload")
 public class FileuploadController {
 	Logger log = Logger.getLogger(this.getClass());
 	

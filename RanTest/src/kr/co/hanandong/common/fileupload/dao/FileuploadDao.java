@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import kr.co.hanandong.common.CommandMap;
 import kr.co.hanandong.common.dao.AbstractDAO;
 
-@Repository("fileuploadDAO")
-public class FileuploadDAO extends AbstractDAO {
+@Repository("fileuploadDao")
+public class FileuploadDao extends AbstractDAO {
 	public List<Map<String, Object>> selectBoardList(CommandMap map) throws Exception {
 		return dataSource_mysql.selectList("common.fileupload.selectBoardList", map);
 	}

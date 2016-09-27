@@ -22,7 +22,12 @@ function ComSubmit(opt_formId) {
 	};
 	
 	this.addParam = function addParam(key, value) {
-		$("#"+this.formId).append($("<input type='hidden' name='"+key+"' id='"+key+"' value='"+value+"' >"));
+		var $key = $("#" + key, '#' + this.formId);
+		if ($key.length == 0) {
+			$("#"+this.formId).append($("<input type='hidden' name='"+key+"' id='"+key+"' value='"+value+"' >"));
+		} else {
+			$key.val(value);
+		}
 	};
 	
 	this.submit = function submit() {

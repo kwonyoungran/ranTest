@@ -12,7 +12,7 @@
 	    		location.href = "/common/fileupload/openBoardList.do";
 	    		break;
 	    	case 1 :
-	    		location.href = "";
+	    		location.href = "/common/fileupload/blobupload/list.do";
 	    		break;
 	    	default : 
 	    		alert("잘못된 경로 입니다.");
@@ -23,5 +23,6 @@
 </head>
 <body>
 	<button>파일업로드</button>
+	<button>파일업로드_BLOB</button>
 	<button>엑셀업로드</button>
 </body>
