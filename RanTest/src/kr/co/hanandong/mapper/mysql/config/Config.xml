@@ -6,5 +6,6 @@
     </settings>
     <typeAliases>
         <typeAlias alias="casemap" type="org.apache.commons.collections4.map.CaseInsensitiveMap"/>
+        <package name="kr.co.hanandong.common.fileupload.dto"/>
     </typeAliases>  
 </configuration>

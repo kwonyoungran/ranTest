@@ -14,6 +14,7 @@ public class BlobuploadDto {
 	private String update_date;
 	private String update_name;
 	private byte[] fileBytes;
+	private String del_yn;
 	
 	public int getIdx() {
 		return idx;
@@ -60,6 +61,12 @@ public class BlobuploadDto {
 	}
 	public byte[] getFileBytes() {
 		return fileBytes;
+	}
+	public String getDel_yn() {
+		return del_yn;
+	}
+	public void setDel_yn(String del_yn) {
+		this.del_yn = del_yn;
 	}
 	public String toString() {
         return "BlobuploadDto [idx=" + idx + ", file_name=" + file_name + ", file=" + file 

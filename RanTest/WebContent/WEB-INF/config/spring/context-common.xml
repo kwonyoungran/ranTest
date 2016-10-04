@@ -29,7 +29,7 @@
     	<property name="rendererType">
     		<map>
     			<entry key="image" value-ref="imageRenderer"/>
-    			<entry key="text" value-ref="textRenderer"></entry>
+    			<entry key="text" value-ref="textRenderer"/>
     		</map>
     	</property>
     </bean>

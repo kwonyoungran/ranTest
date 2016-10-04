@@ -11,15 +11,27 @@ import kr.co.hanandong.common.fileupload.dto.BlobuploadDto;
 
 @Repository("blobuploadDao")
 public class BlobuploadDao extends AbstractDAO {
-//	public List<BlobuploadDto> selectFileList() {
-//		return dataSource_mysql.selectList("common.fileupload.blobupload.selectFileList");
-//	}
-	
 	public Map<String, Object> selectFileList(Map<String, Object> map) {
 		return (Map<String, Object>)selectPagingListForMysql("common.fileupload.blobupload.selectFileList", map, dataSource_mysql);
 	}
 	
 	public int insertFile(BlobuploadDto blobuploadDto) throws FileNotFoundException, IOException {
 		return dataSource_mysql.insert("common.fileupload.blobupload.insertFile", blobuploadDto);
+	}
+	
+	public Map<String,Object> getThumnail(int idx) {
+		return dataSource_mysql.selectOne("common.fileupload.blobupload.getThumnail", idx);
+	}
+	
+	public BlobuploadDto getFileInfo(int idx) {
+		return dataSource_mysql.selectOne("common.fileupload.blobupload.getFileInfo", idx);
+	}
+	
+	public int updateFile(BlobuploadDto blobuploadDto) throws FileNotFoundException, IOException {
+		return dataSource_mysql.insert("common.fileupload.blobupload.updateFile", blobuploadDto);
+	}
+	
+	public int deleteFile(BlobuploadDto blobuploadDto) {
+		return dataSource_mysql.update("common.fileupload.blobupload.deleteFile", blobuploadDto);
 	}
 }

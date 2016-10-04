@@ -101,6 +101,7 @@ public class AbstractDAO {
 	    
 	    Map<String,Object> returnMap = new HashMap<String,Object>();
 	    List<Map<String,Object>> list = sessionTemplate.selectList(queryId, params);
+	    int nTotalCount = sessionTemplate.selectOne(queryId + "_totalCount", params);
 	    
 	    if(list.size() == 0) {
 	        map = new HashMap<String,Object>();
@@ -113,7 +114,7 @@ public class AbstractDAO {
 	        }
 	    } else {
 	        if(paginationInfo != null) {
-	            paginationInfo.setTotalRecordCount(list.size());
+	            paginationInfo.setTotalRecordCount(nTotalCount);
 	            returnMap.put("paginationInfo", paginationInfo);
 	        }
 	    }

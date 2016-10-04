@@ -5,6 +5,7 @@ public class RequestParams {
 	private String isSaved;
 	private String mode;
 	private String currentPageNo;
+	private String alertSaved;
 	
 	public int getIdx() {
 		return idx;
@@ -30,7 +31,12 @@ public class RequestParams {
 	public void setCurrentPageNo(String currentPageNo) {
 		this.currentPageNo = currentPageNo;
 	}
-	
+	public String getAlertSaved() {
+		return alertSaved;
+	}
+	public void setAlertSaved(String alertSaved) {
+		this.alertSaved = alertSaved;
+	}
 	public String toString() {
         return "RequestParams [idx=" + idx + ", isSaved=" + isSaved + ", mode=" + mode + ", currentPageNo=" + currentPageNo + "]";
     }

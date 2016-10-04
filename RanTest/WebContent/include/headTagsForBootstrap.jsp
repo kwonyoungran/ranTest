@@ -10,9 +10,11 @@
 
 <link href="/common/css/jquery-1.11.4-ui.css" rel="stylesheet">
 <link href="/common/css/select2-4.0.1.css" rel="stylesheet">
+<link href="/common/css/font-awesome.css" rel="stylesheet">
+<link href="/common/css/font-awesome.min.css" rel="stylesheet">
 <link href="/common/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="/common/bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-<!-- <link href="/common/css/common.css" rel="stylesheet"> -->
+<link href="/common/css/common.css" rel="stylesheet">
 
 <script src="/common/js/jquery-1.12.0.min.js"></script>
 <script src="/common/js/jquery-1.11.4-ui.min.js"></script>

@@ -38,5 +38,15 @@
 	    ]]>
 	</sql>
 	
+	<sql id="totalCountPre">
+		SELECT 
+			COUNT(*) AS TOTAL_COUNT
+		FROM (
+	</sql>
+	
+	<sql id="totalCountPost">	
+		) AA
+	</sql>
+	
 	<!-- /paging -->
 </mapper>

@@ -18,12 +18,6 @@ public class BlobuploadServiceImpl implements BlobuploadService {
 	@Resource(name="blobuploadDao")
 	BlobuploadDao blobuploadDao;
 	
-//	@Override
-//	public List<BlobuploadDto> selectFileList() {
-//		// TODO Auto-generated method stub
-//		return blobuploadDao.selectFileList();
-//	}
-	
 	@Override
 	public Map<String, Object> selectFileList(Map<String,Object> map) {
 		return blobuploadDao.selectFileList(map);
@@ -33,5 +27,29 @@ public class BlobuploadServiceImpl implements BlobuploadService {
 	public int insertFile(BlobuploadDto blobuploadDto) throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
 		return blobuploadDao.insertFile(blobuploadDto);
+	}
+
+	@Override
+	public Map<String, Object> getThumnail(int idx) {
+		// TODO Auto-generated method stub
+		return blobuploadDao.getThumnail(idx);
+	}
+
+	@Override
+	public BlobuploadDto getFileInfo(int idx) {
+		// TODO Auto-generated method stub
+		return blobuploadDao.getFileInfo(idx);
+	}
+	
+	@Override
+	public int updateFile(BlobuploadDto blobuploadDto) throws FileNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		return blobuploadDao.updateFile(blobuploadDto);
+	}
+
+	@Override
+	public int deleteFile(BlobuploadDto blobuploadDto) {
+		// TODO Auto-generated method stub
+		return blobuploadDao.deleteFile(blobuploadDto);
 	}
 }
