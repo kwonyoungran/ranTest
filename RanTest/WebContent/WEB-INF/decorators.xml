@@ -14,7 +14,7 @@
     </decorator>
 
     <excludes>
-		<pattern></pattern>
+		<pattern>/study/jquery/*.do</pattern>
 	</excludes>
 	
 </decorators>

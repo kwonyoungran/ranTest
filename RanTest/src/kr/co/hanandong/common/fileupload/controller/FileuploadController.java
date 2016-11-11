@@ -26,13 +26,6 @@ public class FileuploadController {
 	@Resource(name="fileuploadService")
 	private FileuploadService fileuploadService;
 
-	@RequestMapping("main.do")
-	public ModelAndView goMain() {
-		ModelAndView mv = new ModelAndView("/common/fileupload/main");
-		
-		return mv;
-	}
-	
 	@RequestMapping(value="openBoardList.do")
     public ModelAndView openBoardList(CommandMap commandMap) throws Exception {
         ModelAndView mv = new ModelAndView("/common/fileupload/boardList");
