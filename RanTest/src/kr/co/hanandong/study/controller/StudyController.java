@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/study/jquery")
+@RequestMapping("/study")
 public class StudyController {
 	
-	@RequestMapping("main")
-	public String main() {
+	@RequestMapping("/jquery/main")
+	public String jQueryMain() {
 		return "/study/jquery/main";
 	}
+	
 }

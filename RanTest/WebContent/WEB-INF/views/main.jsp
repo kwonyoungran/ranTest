@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <head>
+<!-- jQuery 1.12.0 -->
+<script src="/common/js/jquery-1.12.0.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/common/js/jquery-1.11.4-ui.min.js"></script>
 <script>
 	$(function() {
 	  $( "input[type=submit], a, button" )
@@ -20,11 +24,19 @@
 	    	case 3 :
 	    		location.href = "/study/jquery/main.do";
 	    		break;
+	    	case 4 :
+	    		location.href = "/study/css/index.jsp";
+	    		break;
 	    	default : 
 	    		alert("잘못된 경로 입니다.");
 	    	}
 	    });
 	});
+	
+	//쿠키를 사용할수 있는지
+	if(navigator.cookieEnabled) {
+		console.log("hi");
+	}
 </script>
 </head>
 <body>
@@ -32,5 +44,5 @@
 	<button>파일업로드_BLOB</button>
 	<button>엑셀업로드</button>
 	<button>STUDY &gt; jQuery</button>
-	<input type="file" id="file" onchange="checkFileSize(this, '1')"/>
+	<button>STUDY &gt; CSS</button>
 </body>

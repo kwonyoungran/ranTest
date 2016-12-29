@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common">
+	<!-- paging -->
+	<sql id="pagingPre_oracle">
+	    <![CDATA[
+	        SELECT
+	            AAA.*
+	        FROM (
+	            SELECT
+	                COUNT(*) OVER() AS TOTAL_COUNT,
+	                AA.*
+	            FROM (  
+	    ]]>
+	</sql>
+	 
+	<sql id="pagingPost_oracle">
+	    <![CDATA[
+	            ) AA
+	        ) AAA
+	        WHERE
+	            AAA.RNUM BETWEEN #{START} AND #{END}
+	    ]]>
+	</sql>
+	
+	<sql id="pagingPre_mysql">
+	    <![CDATA[
+	        SELECT
+	            AAA.*
+	        FROM (
+	    ]]>
+	</sql>
+	 
+	<sql id="pagingPost_mysql">
+	    <![CDATA[
+	        ) AAA
+	        ORDER BY IDX DESC LIMIT #{START}, #{END}
+	    ]]>
+	</sql>
+	
+	<sql id="totalCountPre">
+		SELECT 
+			COUNT(*) AS TOTAL_COUNT
+		FROM (
+	</sql>
+	
+	<sql id="totalCountPost">	
+		) AA
+	</sql>
+	
+	<!-- /paging -->
+</mapper>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="common.fileupload.blobupload">
+	
+	<sql id="fileList">
+		SELECT
+            IDX,
+            FILE_NAME,
+            REG_DATE,
+            REG_NAME,
+            UPDATE_DATE,
+            UPDATE_NAME
+        FROM
+            FILE_INFO
+        WHERE DEL_YN = 'N'    
+        ORDER BY IDX ASC		
+	</sql>	
+
+	<select id="selectFileList" parameterType="hashmap" resultType="casemap">
+		<include refid="common.pagingPre_mysql" />
+		<include refid="fileList" />
+        <include refid="common.pagingPost_mysql" />
+    </select>
+    
+    <select id="selectFileList_totalCount" parameterType="hashmap" resultType="int">
+		<include refid="common.totalCountPre" />
+		<include refid="fileList" />
+        <include refid="common.totalCountPost" />
+    </select>
+    
+    <insert id="insertFile" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+    	INSERT INTO FILE_INFO
+    	(
+    		FILE_NAME,
+    		FILE_DATA,
+    		REG_DATE,
+    		REG_NAME
+    	)
+    	VALUES
+    	(
+    		#{file_name},
+    		#{fileBytes,jdbcType=BLOB},
+    		NOW(),
+    		#{reg_name}
+    	)
+    </insert>
+    
+    <select id="getThumnail" parameterType="int" resultType="casemap">
+		SELECT
+            IDX,
+            FILE_NAME,
+            FILE_DATA
+        FROM
+            FILE_INFO
+        WHERE IDX = #{idx}  	
+    </select>
+    
+    <select id="getFileInfo" parameterType="hashmap" resultType="BlobuploadDto">
+		SELECT 
+			IDX, 
+			FILE_NAME, 
+			FILE_DATA AS FILEBYTES, 
+			REG_DATE, 
+			REG_NAME, 
+			UPDATE_DATE, 
+			UPDATE_NAME, 
+			DEL_YN 
+		FROM FILE_INFO
+		WHERE 
+			IDX = #{idx}
+			AND DEL_YN = 'N'
+    </select>
+    
+    <update id="updateFile" parameterType="hashmap">
+    	UPDATE FILE_INFO SET
+    		FILE_NAME = #{file_name},
+    		FILE_DATA = #{fileBytes},
+    		UPDATE_NAME = #{update_name},
+    		UPDATE_DATE = NOW()
+    	WHERE IDX = #{idx}
+    </update>
+    
+    <update id="deleteFile" parameterType="hashmap">
+    	UPDATE FILE_INFO SET
+    		DEL_YN = 'Y',
+    		UPDATE_NAME = #{update_name},
+    		UPDATE_DATE = NOW()
+    	WHERE IDX = #{idx}
+    </update>
+    
+</mapper>

@@ -3,18 +3,40 @@
 <html lang="ko">
 <head>
 <%@ include file="/include/include-header.jspf" %>
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style type="text/css">
+
+
+  p {
+    color: blue;
+    margin: 8px;
+  }
+ 
+
+</style>
+
+<script>
+
 $(document).ready(function() {
 	
+	$( "input" )
+	  .keyup(function() {
+	    var value = $( this ).val();
+	    $( "p" ).text( value );
+	  })
+	  .keyup();
+	
 });
+
 </script>
-<style type="text/css">
-</style>
+
 </head>
-<body> 
-<form name="frm" id="frm" method="post">
-jquery test
-</form>
+<body>
+
+<input type="text" value="some text">
+<p></p>
+
 <%@ include file="/include/include-body.jspf" %>
 </body>
 </html>

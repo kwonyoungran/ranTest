@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
 
-	<decorator name="no-left_layout" page="no-left_layout.jsp">
+    <excludes>
+		<pattern>/study/jquery/*.do</pattern>
+		<pattern>/study/css/AdminLTE/*.*</pattern>
+	</excludes>
+	
+	<decorator name="no-layout" page="no-layout.jsp">
+<!-- 		<pattern>/study/css/AdminLTE/*.*</pattern> -->
     </decorator>
 
 	<decorator name="no-menu_layout" page="no-menu_layout.jsp">
@@ -9,12 +15,16 @@
     </decorator>
 
    	<decorator name="basic_layout" page="basic_layout.jsp">
-   		<pattern>*</pattern>
+<!--    		<pattern>/</pattern> -->
    		<pattern>/common/fileupload/blobupload/*.do</pattern>
     </decorator>
+    
+    <decorator name="css_test_layout" page="css_test_layout.jsp">
+		<pattern>/study/css/*.jsp</pattern>
+    </decorator>
+    
 
-    <excludes>
-		<pattern>/study/jquery/*.do</pattern>
-	</excludes>
+
+
 	
 </decorators>
