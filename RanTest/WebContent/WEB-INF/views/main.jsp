@@ -27,6 +27,9 @@
 	    	case 4 :
 	    		location.href = "/study/css/index.jsp";
 	    		break;
+	    	case 5 : 
+	    		location.href = "/study/vue/main.jsp";
+	    		break;
 	    	default : 
 	    		alert("잘못된 경로 입니다.");
 	    	}
@@ -45,4 +48,5 @@
 	<button>엑셀업로드</button>
 	<button>STUDY &gt; jQuery</button>
 	<button>STUDY &gt; CSS</button>
+	<button>STUDY &gt; Vue.js</button>
 </body>

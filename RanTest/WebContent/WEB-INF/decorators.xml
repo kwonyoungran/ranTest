@@ -7,7 +7,9 @@
 	</excludes>
 	
 	<decorator name="no-layout" page="no-layout.jsp">
-<!-- 		<pattern>/study/css/AdminLTE/*.*</pattern> -->
+		<pattern>/study/vue/main.jsp</pattern>
+		<pattern>/study/vue/component.jsp</pattern>
+		<pattern>/study/vue/example*.jsp</pattern>
     </decorator>
 
 	<decorator name="no-menu_layout" page="no-menu_layout.jsp">
@@ -23,8 +25,4 @@
 		<pattern>/study/css/*.jsp</pattern>
     </decorator>
     
-
-
-
-	
 </decorators>

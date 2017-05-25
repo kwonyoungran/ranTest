@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<decorator:head></decorator:head>
-	<style type="text/css">
-	</style>
+<decorator:head></decorator:head>
+<style type="text/css">
+</style>
 </head>
 <body>
-	<main><decorator:body></decorator:body></main>
+<main><decorator:body></decorator:body></main>
 </body>
 </html>
