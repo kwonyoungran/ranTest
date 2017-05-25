@@ -7,9 +7,27 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 public class TestDao {
-	private SqlSessionFactory sqlSessionFactory = MyBatisConnectorFactory.getSqlSessionFactory();
+//	private SqlSessionFactory sqlSessionFactory = MyBatisConnectorFactory.getSqlSessionFactory();
+//	
+//	public List<HashMap<String,Object>> getList() {
+//		SqlSession sqlSession = sqlSessionFactory.openSession();
+//		
+//		try {
+//			TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+//			
+//			List<HashMap<String,Object>> list = mapper.getList();
+//			
+//			return list;
+//			
+//		} finally {
+//			sqlSession.close();
+//		}
+//	}
 	
 	public List<HashMap<String,Object>> getList() {
+		MyBatisConnectorFactory myBatisConnectorFactory = new MyBatisConnectorFactory();
+		SqlSessionFactory sqlSessionFactory = myBatisConnectorFactory.getSqlSessionFactory();
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
